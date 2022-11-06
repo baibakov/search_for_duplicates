@@ -64,7 +64,7 @@ def enumeration(a):
     print(set(result))
 
 
-# a = [int(i) for i in input().split()]
+# a = [int(i) for i in input().split()]     # ввод с клавиатуры
 i = 0
 avg_sortings = 0
 avg_enumeration = 0
