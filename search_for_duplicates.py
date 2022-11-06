@@ -13,28 +13,29 @@ def quicksort(a):
 
 # метод проходит по отсортированному массиву и ищет самую длинную последовательность равных эл-в
 def sorting_search(a):
-    a = quicksort(a)
-    count = 1
-    max_c = 1
-    value = a[0]
-    i = 1
-    result = []
+    a = quicksort(a)    # сортируем список
+    count = 1           # счетчик кол-во дубликатов
+    max_c = 1           # максимальное кол-во дубликатов
+    value = a[0]        # начальный эл-т
+    i = 1               # счетчик цикла
+    result = []         # результирующий список
 
     while i < len(a):
-        if value == a[i]:
+        if value == a[i]:   # пока значения равны увеличиваем счетчик, иначе
             count += 1
         else:
-            if max_c < count:
+            if max_c < count:   # если счетчик больше максимального значения, очищаем список и добавляем значение
                 result.clear()
                 result.append(value)
                 max_c = count
             else:
-                if max_c == count:
+                if max_c == count:  # если счетчик равен максимальному количество то добавляем значение
                     result.append(value)
             value = a[i]
             count = 1
         i += 1
-
+        
+    # проверка последней итерации
     if count > max_c:
         result.clear()
         result.append(value)
@@ -59,7 +60,7 @@ def enumeration(a):
             result.clear()          # очищаем список с элементами которых максимальное количество
             result.append(value)
             max_k = c
-        elif c == max_k:
+        elif c == max_k:            # если счетчик равен максимальному количество то добавляем значение
             result.append(value)
     print(set(result))
 
@@ -71,13 +72,13 @@ avg_enumeration = 0
 while i < 10:
     a = [random.randint(0, 100) for i in range(25000)]
     b = a.copy()
-    start_sorting = time.monotonic()  # запуск таймера
+    start_sorting = time.monotonic()                        # запуск таймера
     sorting_search(a)
     result_time_sort = time.monotonic() - start_sorting
     print(f'Подсчет сортировкой: {result_time_sort}')
     avg_sortings += result_time_sort
 
-    start_enumiration = time.monotonic()  # запуск таймера
+    start_enumiration = time.monotonic()                    # запуск таймера
     enumeration(b)
     result_time_enum = time.monotonic() - start_enumiration
     print(f'Подсчет перебором: {result_time_enum}')
