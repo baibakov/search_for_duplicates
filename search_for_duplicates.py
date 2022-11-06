@@ -62,7 +62,7 @@ def enumeration(a):
             max_k = c
         elif c == max_k:            # если счетчик равен максимальному количество то добавляем значение
             result.append(value)
-    print(set(result))
+    print(sorted(set(result)))
 
 
 # a = [int(i) for i in input().split()]     # ввод с клавиатуры
