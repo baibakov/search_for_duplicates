@@ -53,7 +53,7 @@ def enumeration(a):
     for i in range(len(a)):
         c = 0                       # обнуляем счетчик
         value = a[i]                # присваеваем новое значение
-        for j in range(len(a)):
+        for j in range(i, len(a)):
             if value == a[j]:
                 c += 1              # если встретили элемент увеличиваем кол-во
         if c > max_k:
@@ -62,7 +62,7 @@ def enumeration(a):
             max_k = c
         elif c == max_k:            # если счетчик равен максимальному количество то добавляем значение
             result.append(value)
-    print(sorted(set(result)))
+    print(quicksort(result))
 
 
 # a = [int(i) for i in input().split()]     # ввод с клавиатуры
